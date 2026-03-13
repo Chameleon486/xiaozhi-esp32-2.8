@@ -1,0 +1,60 @@
+{
+    "name": "QDtech ES3N28P",
+    "description": "2.8 inch IPS display without touch, ESP32-S3",
+    "chip": "esp32s3",
+    "display": {
+        "driver": "ili9341",
+        "spi_clk": 12,
+        "spi_mosi": 11,
+        "spi_miso": 13,
+        "cs": 10,
+        "dc": 46,
+        "reset": 0,
+        "backlight": 45,
+        "width": 240,
+        "height": 320,
+        "invert": false,
+        "rgb_order": false,
+        "rotation": 0
+    },
+    "touch": {
+        "enabled": false
+    },
+    "audio": {
+        "codec": "es8311",
+        "i2c_sda": 16,
+        "i2c_scl": 15,
+        "i2s_bck": 5,
+        "i2s_ws": 7,
+        "i2s_dout": 6,
+        "i2s_din": 8,
+        "speaker_enable": 1,
+        "mic_enable": 1,
+        "volume": 70
+    },
+    "sd_card": {
+        "enabled": true,
+        "clk": 38,
+        "cmd": 40,
+        "d0": 39,
+        "d1": 41,
+        "d2": 48,
+        "d3": 47
+    },
+    "rgb_led": {
+        "enabled": true,
+        "pin": 42
+    },
+    "battery": {
+        "enabled": true,
+        "adc_pin": 9,
+        "multiplier": 2
+    },
+    "button": {
+        "boot": 0
+    },
+    "serial": {
+        "tx": 43,
+        "rx": 44
+    }
+}
