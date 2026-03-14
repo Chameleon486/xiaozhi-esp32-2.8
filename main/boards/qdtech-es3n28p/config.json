@@ -1,7 +1,6 @@
 {
     "name": "QDtech ES3N28P",
     "description": "2.8 inch IPS display without touch, ESP32-S3",
-    "manufacturer": "qdtech",
     "target": "esp32s3",
     "builds": [
         {
