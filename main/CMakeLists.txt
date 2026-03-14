@@ -729,8 +729,6 @@ elseif(CONFIG_BOARD_TYPE_QDTECH_ES3N28P)
     set(BUILTIN_ICON_FONT font_awesome_16_4)
     set(DEFAULT_EMOJI_COLLECTION twemoji_64)
 endif()
-endif()
-endif()
 
 if(MANUFACTURER)
     file(GLOB BOARD_SOURCES
