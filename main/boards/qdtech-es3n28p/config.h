@@ -1,46 +1,58 @@
-#pragma once
+#ifndef _BOARD_CONFIG_H_
+#define _BOARD_CONFIG_H_
 
-// QDtech ES3N28P board configuration
-// 2.8 inch IPS display without touch, ESP32-S3
+#include <driver/gpio.h>
+#include <driver/spi_master.h>
 
-// Display pins (ILI9341 SPI)
-#define BOARD_LCD_SPI_CLK   GPIO_NUM_12
-#define BOARD_LCD_SPI_MOSI  GPIO_NUM_11
-#define BOARD_LCD_SPI_MISO  GPIO_NUM_13
-#define BOARD_LCD_CS        GPIO_NUM_10
-#define BOARD_LCD_DC        GPIO_NUM_46
-#define BOARD_LCD_RST       GPIO_NUM_0  // CHIP_PU shared with reset
-#define BOARD_LCD_BL        GPIO_NUM_45
+#define AUDIO_INPUT_SAMPLE_RATE 24000
+#define AUDIO_OUTPUT_SAMPLE_RATE 24000
 
-// Audio pins (ES8311 codec)
-#define BOARD_AUDIO_I2C_SDA     GPIO_NUM_16
-#define BOARD_AUDIO_I2C_SCL     GPIO_NUM_15
-#define BOARD_AUDIO_I2S_MCLK    GPIO_NUM_4
-#define BOARD_AUDIO_I2S_BCK     GPIO_NUM_5
-#define BOARD_AUDIO_I2S_WS      GPIO_NUM_7
-#define BOARD_AUDIO_I2S_DOUT    GPIO_NUM_6
-#define BOARD_AUDIO_I2S_DIN     GPIO_NUM_8
-#define BOARD_AUDIO_PWR_EN      GPIO_NUM_1
+// I2S pins for audio (ES8311)
+#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_4
+#define AUDIO_I2S_GPIO_WS GPIO_NUM_7
+#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_5
+#define AUDIO_I2S_GPIO_DIN GPIO_NUM_8
+#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_6
+
+#define AUDIO_CODEC_PA_PIN      GPIO_NUM_1
+#define AUDIO_CODEC_I2C_SDA_PIN GPIO_NUM_16
+#define AUDIO_CODEC_I2C_SCL_PIN GPIO_NUM_15
+#define AUDIO_CODEC_ES8311_ADDR ES8311_CODEC_DEFAULT_ADDR
+
+#define BUILTIN_LED_GPIO        GPIO_NUM_42  // RGB LED
+#define BOOT_BUTTON_GPIO        GPIO_NUM_0
+#define VOLUME_UP_BUTTON_GPIO   GPIO_NUM_NC
+#define VOLUME_DOWN_BUTTON_GPIO GPIO_NUM_NC
+
+// SPI LCD pins (ILI9341)
+#define DISPLAY_SPI_MODE        0
+#define DISPLAY_CS_PIN          GPIO_NUM_10
+#define DISPLAY_MOSI_PIN        GPIO_NUM_11
+#define DISPLAY_MISO_PIN        GPIO_NUM_13
+#define DISPLAY_CLK_PIN         GPIO_NUM_12
+#define DISPLAY_DC_PIN          GPIO_NUM_46
+#define DISPLAY_RST_PIN         GPIO_NUM_NC  // Reset is shared with system reset
+
+#define DISPLAY_WIDTH           320
+#define DISPLAY_HEIGHT          240
+#define DISPLAY_MIRROR_X        false
+#define DISPLAY_MIRROR_Y        false
+#define DISPLAY_SWAP_XY         false
+#define DISPLAY_RGB_ORDER       LCD_RGB_ELEMENT_ORDER_RGB
+#define DISPLAY_INVERT_COLOR    false
+
+#define DISPLAY_OFFSET_X        0
+#define DISPLAY_OFFSET_Y        0
+
+#define DISPLAY_BACKLIGHT_PIN   GPIO_NUM_45
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false
 
 // SD card pins (SDIO)
-#define BOARD_SD_CLK    GPIO_NUM_38
-#define BOARD_SD_CMD    GPIO_NUM_40
-#define BOARD_SD_D0     GPIO_NUM_39
-#define BOARD_SD_D1     GPIO_NUM_41
-#define BOARD_SD_D2     GPIO_NUM_48
-#define BOARD_SD_D3     GPIO_NUM_47
+#define SD_CLK_PIN              GPIO_NUM_38
+#define SD_CMD_PIN              GPIO_NUM_40
+#define SD_D0_PIN               GPIO_NUM_39
+#define SD_D1_PIN               GPIO_NUM_41
+#define SD_D2_PIN               GPIO_NUM_48
+#define SD_D3_PIN               GPIO_NUM_47
 
-// RGB LED (with built-in IC)
-#define BOARD_RGB_LED_PIN   GPIO_NUM_42
-
-// Battery ADC
-#define BOARD_BATTERY_ADC_PIN   GPIO_NUM_9
-#define BOARD_BATTERY_MULTIPLIER 2  // Voltage divider (1:1, so multiply by 2)
-
-// Serial ports
-#define BOARD_SERIAL_TX    GPIO_NUM_43
-#define BOARD_SERIAL_RX    GPIO_NUM_44
-
-// USB pins
-#define BOARD_USB_DM   GPIO_NUM_19
-#define BOARD_USB_DP   GPIO_NUM_20
+#endif // _BOARD_CONFIG_H_
