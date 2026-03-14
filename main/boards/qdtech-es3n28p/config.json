@@ -9,7 +9,7 @@
                 "CONFIG_LCD_TYPE_ILI9341=y",
                 "CONFIG_LCD_SPI_CLK=12",
                 "CONFIG_LCD_SPI_MOSI=11",
-                "CONFIG_LCD_SPI_MISO=-1",
+                "CONFIG_LCD_SPI_MISO=13",
                 "CONFIG_LCD_CS=10",
                 "CONFIG_LCD_DC=46",
                 "CONFIG_LCD_RST=-1",
@@ -38,7 +38,5 @@
                 "CONFIG_BATTERY_ADC_ENABLED=n"
             ]
         }
-    ]
-}
     ]
 }
